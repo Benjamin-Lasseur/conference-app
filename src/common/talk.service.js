@@ -5,11 +5,15 @@ export default class TalkService {
         return $.get("http://localhost:3000/speakers")    
     }
 
-    findById(id){
+    findSpeakerById(id){
         return $.get(`http://localhost:3000/speakers/${id}`)
     }
 
     findAllSessions(){
         return $.get("http://localhost:3000/sessions") 
+    }
+
+    findSessionById(id){
+        return $.get(`http://localhost:3000/sessions/${id}`)
     }
 }

@@ -1,3 +1,10 @@
+
+const template = `
+<div class="list-group">
+    
+</div>
+`
+
 export default class SessionsList {
     constructor(ts) {
         this.ts = ts
@@ -6,11 +13,16 @@ export default class SessionsList {
     render() {
 
         this.ts.findAllSessions().then(sessions => {
-            let str = ""
+            $("#main-view").html(template)
+            let str = ''
             sessions.forEach(session => {
-                str = str + "\n" + session.title
+                str += this.newLine(session)
             })
-            $("#main-view").html(str)
+            $(".list-group").html(str)
         })
+    }
+
+    newLine(session) {
+        return `<a href="#session-detail/${session.id}" class="list-group-item list-group-item-action">${session.title}</a>`
     }
 }
