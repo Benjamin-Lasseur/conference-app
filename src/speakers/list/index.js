@@ -1,4 +1,9 @@
+import "./sp.css"
+const template = `
+<div class="list-group">
 
+</div>
+`
 
 export default class SpeakerList {
     constructor(ts) {
@@ -8,11 +13,21 @@ export default class SpeakerList {
     render() {
 
         this.ts.findAllSpeakers().then(speakers => {
-            let str = ""
+            $("#main-view").html(template)
+            let str = template
             speakers.forEach(speaker => {
-                str = str + speaker.lastname + " " + speaker.firstname
+                str = str + this.newLine(speaker)
             })
-            $("#main-view").html(str)
+            $(".list-group").html(str)
+
+            $(".list-group-item-action").mouseover(function(){
+               console.log($(this))
+            })
         })
     }
+    newLine(speaker) {
+        return `<a id="${speaker.id}" href="#speakers-list/${speaker.id}" class="list-group-item list-group-item-action">${speaker.firstname} ${speaker.lastname}</a>`
+    }
 }
+
+
