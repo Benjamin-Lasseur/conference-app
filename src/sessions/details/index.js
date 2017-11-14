@@ -25,6 +25,8 @@ export default class SessionDetails {
                 alt="retour">
             </a>`
             )
+            $('#navSessions').addClass("active")
+            $('#navPresentateurs').removeClass().addClass("nav-item nav-link")
             $("#main-view").html(template)
             $('h1').html(session.title)
             $('p').html(session.desc)
