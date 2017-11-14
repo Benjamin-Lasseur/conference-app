@@ -14,8 +14,9 @@ export default class SessionsList {
 
         this.ts.findAllSessions().then(sessions => {
             $('#retour').html('')
+            $('.navbar-nav > a').removeClass().addClass("nav-item nav-link")
             $('#navSessions').addClass("active")
-            $('#navPresentateurs').removeClass().addClass("nav-item nav-link")
+           
             $("#main-view").html(template)
             let str = ''
             sessions.sort(this.compare)
