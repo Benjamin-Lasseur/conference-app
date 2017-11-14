@@ -14,6 +14,8 @@ export default class SessionsList {
 
         this.ts.findAllSessions().then(sessions => {
             $('#retour').html('')
+            $('#navSessions').addClass("active")
+            $('#navPresentateurs').removeClass().addClass("nav-item nav-link")
             $("#main-view").html(template)
             let str = ''
             sessions.forEach(session => {

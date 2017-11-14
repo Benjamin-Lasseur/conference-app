@@ -14,6 +14,8 @@ export default class SpeakerList {
 
         this.ts.findAllSpeakers().then(speakers => {
             $('#retour').html('')
+            $('#navPresentateurs').addClass("active")
+            $('#navSessions').removeClass().addClass("nav-item nav-link")
             $("#main-view").html(template)
             let str = template
             speakers.forEach(speaker => {
