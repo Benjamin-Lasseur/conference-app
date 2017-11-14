@@ -18,6 +18,7 @@ export default class SessionsList {
             $('#navPresentateurs').removeClass().addClass("nav-item nav-link")
             $("#main-view").html(template)
             let str = ''
+            sessions.sort(this.compare)
             sessions.forEach(session => {
                 str += this.newLine(session)
             })
@@ -28,4 +29,12 @@ export default class SessionsList {
     newLine(session) {
         return `<a href="#session-detail/${session.id}" class="list-group-item list-group-item-action">${session.title}</a>`
     }
+
+    compare(a,b) {
+        if (a.title < b.title)
+          return -1;
+        if (a.title > b.title)
+          return 1;
+        return 0;
+      }
 }
