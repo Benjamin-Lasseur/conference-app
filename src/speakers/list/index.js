@@ -21,12 +21,11 @@ export default class SpeakerList {
             $(".list-group").html(str)
 
             $(".list-group-item-action").mouseover(function(){
-               console.log($(this))
             })
         })
     }
     newLine(speaker) {
-        return `<a id="${speaker.id}" href="#speakers-list/${speaker.id}" class="list-group-item list-group-item-action">${speaker.firstname} ${speaker.lastname}</a>`
+        return `<a id="${speaker.id}" href="#speaker-detail/${speaker.id}" class="list-group-item list-group-item-action">${speaker.firstname} ${speaker.lastname}</a>`
     }
 }
 
