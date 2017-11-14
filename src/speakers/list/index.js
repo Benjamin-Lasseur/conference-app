@@ -13,6 +13,7 @@ export default class SpeakerList {
     render() {
 
         this.ts.findAllSpeakers().then(speakers => {
+            $('#retour').html('')
             $("#main-view").html(template)
             let str = template
             speakers.forEach(speaker => {
