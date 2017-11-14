@@ -13,6 +13,7 @@ export default class SessionsList {
     render() {
 
         this.ts.findAllSessions().then(sessions => {
+            $('#retour').html('')
             $("#main-view").html(template)
             let str = ''
             sessions.forEach(session => {

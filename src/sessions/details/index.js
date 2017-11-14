@@ -1,12 +1,11 @@
 const template = `
 <div class="row">
-<h1>Titre</h1>
+    <h1>Titre</h1>
 </div>
 <div class="row">
-<p>Description</p>
+    <p>Description</p>
 </div>
 <div class="row" id="presentateurs">
-
 </div>
 
 `
@@ -18,29 +17,38 @@ export default class SessionDetails {
     render(id) {
 
         this.ts.findSessionById(id).then(session => {
+            $('#retour').html(`
+            <a class="navbar-brand" href="#sessions-list">
+                <img class="d-flex align-self-center mr-3" height="50" src="http://pixsector.com/cache/a8009c95/av8a49a4f81c3318dc69d.png"
+                alt="retour">
+            </a>`
+            )
             $("#main-view").html(template)
             $('h1').html(session.title)
             $('p').html(session.desc)
             let str = ''
-            session.speakers.forEach(speaker => {
-                this.ts.findSpeakerById(speaker).then(speakerDetail => {
-                    str += this.newPres(speakerDetail)
+
+            let reqs = session.speakers.map(id => this.ts.findSpeakerById(id))
+
+            Promise.all(reqs).then((tabResultats) => {
+                tabResultats.forEach(speaker => {
+                    str += this.newPres(speaker)
                 })
+                $("#presentateurs").html(str)
             })
-            $("#presentateurs").html(str)
         })
     }
 
     newPres(speaker) {
         return `
-        <div class="row">
-            <div class="col-4">
-                <img src="${speaker.image}" alt="Photo de ${speaker.firstname} ${speaker.lastname}" height="42" width="42">
-            </div>
-            <div class="col-6">
-                ${speaker.firstname} ${speaker.lastname}
-            </div>
-        </div>
+        <div class="row col-12">
+            <div class="media">
+                <img class="align-self-center mr-3" src="./src/images/${speaker.image}" alt="Photo de ${speaker.firstname} ${speaker.lastname}" width=100px height=100px>
+                 <div class="media-body">
+                     <h3 class="mt-0">${speaker.firstname} ${speaker.lastname}</h3>
+                 </div>
+             </div>
+        </div>       
         `
     }
 }
