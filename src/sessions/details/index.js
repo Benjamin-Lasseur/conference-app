@@ -3,7 +3,7 @@ const template = `
     <h1>Titre</h1>
 </div>
 <div class="row">
-    <p>Description</p>
+    <p id="description">Description</p>
 </div>
 <div class="row" id="presentateurs">
 </div>
@@ -29,7 +29,7 @@ export default class SessionDetails {
             $('#navPresentateurs').removeClass().addClass("nav-item nav-link")
             $("#main-view").html(template)
             $('h1').html(session.title)
-            $('p').html(session.desc)
+            $('#description').html(session.desc)
             $("#note").html(`<input type="button" class="btn btn-primary" value="Notes" onclick="location.href = '#note/${id}'">`)
             let str = ''
 

@@ -19,7 +19,7 @@ export default class SessionNote {
         this.ts.findSessionById(id).then(session => {
             $("#main-view").html(template)
             $('#retour').html(`
-            <a class="navbar-brand" href="#sessions-list">
+            <a class="navbar-brand" href="#session-detail/${id}">
                 <img class="d-flex align-self-center mr-3" height="50" src="http://pixsector.com/cache/a8009c95/av8a49a4f81c3318dc69d.png"
                 alt="retour">
             </a>`
