@@ -1,7 +1,8 @@
-import TalkService from '../../common/talk.service'
+
+
 export default class SpeakerList {
-    constructor() {
-        this.ts = new TalkService()
+    constructor(ts) {
+        this.ts = ts
     }
 
     render() {

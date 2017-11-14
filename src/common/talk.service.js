@@ -8,4 +8,8 @@ export default class TalkService {
     findById(id){
         return $.get(`http://localhost:3000/speakers/${id}`)
     }
+
+    findAllSessions(){
+        return $.get("http://localhost:3000/sessions") 
+    }
 }
