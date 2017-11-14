@@ -7,6 +7,8 @@ const template = `
 </div>
 <div class="row" id="presentateurs">
 </div>
+<div class="row" id="note">   
+</div>
 
 `
 export default class SessionDetails {
@@ -26,6 +28,7 @@ export default class SessionDetails {
             $("#main-view").html(template)
             $('h1').html(session.title)
             $('p').html(session.desc)
+            $("#note").html(`<input type="button" class="btn btn-primary" value="Notes" onclick="location.href = '#note/${id}'">`)
             let str = ''
 
             let reqs = session.speakers.map(id => this.ts.findSpeakerById(id))
@@ -45,7 +48,7 @@ export default class SessionDetails {
             <div class="media">
                 <img class="align-self-center mr-3" src="./src/images/${speaker.image}" alt="Photo de ${speaker.firstname} ${speaker.lastname}" width=100px height=100px>
                  <div class="media-body">
-                     <h3 class="mt-0">${speaker.firstname} ${speaker.lastname}</h3>
+                     <a href="#speaker-detail/${speaker.id}"<h3 class="mt-0">${speaker.firstname} ${speaker.lastname}</h3></a>
                  </div>
              </div>
         </div>       
