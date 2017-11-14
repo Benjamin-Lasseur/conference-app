@@ -24,8 +24,9 @@ export default class SpeakerDetail {
                 alt="retour">
             </a>`
             )
+            $('.navbar-nav > a').removeClass().addClass("nav-item nav-link")
             $('#navPresentateurs').addClass("active")
-            $('#navSessions').removeClass().addClass("nav-item nav-link")
+            
             $('#main-view').html(template)
             $('#title').html(speaker.lastname + " " + speaker.firstname)
             $('#photo').html(`<img id="photo" src="./src/images/${speaker.image}" class="rounded mx-auto d-block" alt="Photo">`)

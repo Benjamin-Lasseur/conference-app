@@ -12,6 +12,7 @@ import Session from './sessions/list/index'
 import SessionDetail from './sessions/details/index'
 import SpeakerDetail from './speakers/details/index'
 import NoteSession from './sessions/notes/index'
+import Accueil from './Accueil/index'
 
 // intégration JQuery
 window.$ = window.jQuery = require('jquery');
@@ -23,7 +24,9 @@ const layout = new Layout()
 const sessionDetail = new SessionDetail(ts)
 const speakerDetail = new SpeakerDetail(ts)
 const noteSession = new NoteSession(ts)
+const accueil = new Accueil()
 layout.render()
+accueil.render()
 
 let routes = new Map();
 routes.set('#speakers-list', speaker)
@@ -31,6 +34,7 @@ routes.set('#sessions-list', session)
 routes.set('#session-detail', sessionDetail)
 routes.set('#speaker-detail', speakerDetail)
 routes.set('#note', noteSession)
+routes.set('#accueil', accueil )
 
 
 

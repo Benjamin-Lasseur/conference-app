@@ -14,8 +14,9 @@ export default class SpeakerList {
 
         this.ts.findAllSpeakers().then(speakers => {
             $('#retour').html('')
+            $('.navbar-nav > a').removeClass().addClass("nav-item nav-link")
             $('#navPresentateurs').addClass("active")
-            $('#navSessions').removeClass().addClass("nav-item nav-link")
+           
             $("#main-view").html(template)
             let str = template
             speakers.sort(this.compare).forEach(speaker => {
