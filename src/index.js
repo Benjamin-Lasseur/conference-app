@@ -20,6 +20,7 @@ const speaker = new Speaker(ts)
 const session = new Session(ts)
 const layout = new Layout()
 const sessionDetail = new SessionDetail(ts)
+const speakerDetail = new SpeakerDetail(ts)
 layout.render()
 
 let routes = new Map();
